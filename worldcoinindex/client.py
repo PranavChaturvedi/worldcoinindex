@@ -1,5 +1,6 @@
 import requests
 from datetime import datetime
+from .constants import WCI_BASE_URL
 
 class CryptocoinEngine:
   """
@@ -7,14 +8,14 @@ class CryptocoinEngine:
   """
 
   def __init__(self, api_key):
-    self.api_key = api_key
-    self.base_url = "https://www.worldcoinindex.com/apiservice/"
+    self.__api_key = api_key
+    self.__base_url = WCI_BASE_URL
 
   def _make_request(self, url, params=None):
     """
     Makes a GET request to the WorldCoinIndex API.
     """
-    headers = {"X-API-Key": self.api_key}
+    headers = {"X-API-Key": self.__api_key}
     response = requests.get(url, headers=headers, params=params)
     response.raise_for_status()  # Raise exception for non-200 status codes
     return response.json()
@@ -23,7 +24,7 @@ class CryptocoinEngine:
     """
     Fetches ticker data for specified labels.
     """
-    url = f"{self.base_url}ticker?key={self.api_key}&label={labels}"
+    url = f"{self.__base_url}ticker?key={self.__api_key}&label={labels}"
     data = self._make_request(url)
     return {item["Label"]: item for item in data["Markets"]}
 
@@ -32,7 +33,7 @@ class CryptocoinEngine:
     Fetches market data for all currencies.
     """
     endpoint = "v2getmarkets" if v2 else "getmarkets"
-    url = f"{self.base_url}{endpoint}?key={self.api_key}&fiat={fiat}"
+    url = f"{self.__base_url}{endpoint}?key={self.__api_key}&fiat={fiat}"
     data = self._make_request(url)
     for item in data["Markets"]:
       item["Timestamp"] = datetime.fromtimestamp(item["Timestamp"])

@@ -1,0 +1,1 @@
+WCI_BASE_URL = "https://www.worldcoinindex.com/apiservice/"
