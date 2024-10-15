@@ -1,5 +1,8 @@
 ## worldcoinindex
 
+[![Downloads](https://static.pepy.tech/badge/worldcoinindex)](https://pepy.tech/project/worldcoinindex)
+[![PyPI](https://badge.fury.io/py/worldcoinindex.svg)](https://pypi.org/project/worldcoinindex/)
+
 A Python wrapper for the [WorldCoinIndex API](https://www.worldcoinindex.com/apiservice).
 
 # Features
