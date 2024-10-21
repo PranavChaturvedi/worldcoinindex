@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name="worldcoinindex",
-    version="1.0.0",
+    version="1.0.1",
     description="A lightweight wrapper for the WorldCoinIndex Cyptocoin API",
     long_description=pathlib.Path("README.md").read_text(encoding="utf-8"),
     long_description_content_type="text/markdown",

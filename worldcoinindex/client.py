@@ -67,7 +67,6 @@ class CryptocoinEngine:
             dict: Tickers of the entire market with respect to the fiat currency.
         """
         path_params = [("getmarkets" if not use_v2 else "v2getmarkets")]
-        print(path_params)
         query_params = {"fiat": fiat}
         response = self._make_request(
             query_params=query_params, path_params=path_params
